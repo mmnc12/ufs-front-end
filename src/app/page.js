@@ -1,13 +1,11 @@
-import axios from "axios";
 import estilos from "./page.module.css";
 import { retornaUfs } from "./servicos/ufs";
 
-async function getServerSideProps() {
-  const listaUfs = await retornaUfs();
-  return { props: { listaUfs } };
-}
 
-export default function Home({ listaUfs }) {
+export default async function Home() {
+
+  const listaUfs = await retornaUfs();
+
   return (
     <main className={estilos.main}>
       <header className={estilos.header}>
