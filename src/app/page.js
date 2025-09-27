@@ -2,7 +2,7 @@ import axios from "axios";
 import estilos from "./page.module.css";
 import { retornaUfs } from "./servicos/ufs";
 
-export async function getServerSideProps() {
+async function getServerSideProps() {
   const listaUfs = await retornaUfs();
   return { props: { listaUfs } };
 }
