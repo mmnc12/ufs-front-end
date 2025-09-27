@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 48px;
+  font-family: monospace;
+
+  background: #00bdf7;
+  border-bottom: 1px solid black;
+  margin: 0 0 20px 0;
+}
