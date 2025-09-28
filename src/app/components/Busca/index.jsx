@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
+import estilos from './Busca.module.css';
 
 export default function Busca({ onBuscar }) {
 
