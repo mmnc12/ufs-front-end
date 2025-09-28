@@ -11,7 +11,7 @@ export default function Home() {
   const [listaUfs, setListaUfs] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const buscarUfs = async (termo = "") => {
+  const buscarUfs = async (termo) => {
     setLoading(true);
     const resultados = await retornaUfs(termo);
     setListaUfs(resultados);
