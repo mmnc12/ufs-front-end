@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import Table from "./components/Table";
 import Topo from "./components/Topo";
