@@ -1,8 +1,9 @@
 import axios from "axios";
 
-export async function retornaUfs() {
+const BASE_URL = "https://apiufsbrasil.onrender.com/ufs"
+export async function retornaUfs(termo="") {
   try {
-    const endpoint = "https://apiufsbrasil.onrender.com/ufs";
+    const endpoint = termo ? `${BASE_URL}?busca=${encodeURIComponent(termo)}` : BASE_URL;
     const {data} = await axios.get(endpoint, { timeout: 10000 });
     return data || [];
   } catch (error) {
