@@ -1,10 +1,6 @@
 'use client';
-// import { retornaUfs } from '../../service/ufs';
 import estilos from './Table.module.css';
 export default async function Table({ listaUfs }) {
-
-  // const listaUfs = await retornaUfs();
-
   return (
     <table className={estilos.table}>
       <thead>
@@ -16,7 +12,7 @@ export default async function Table({ listaUfs }) {
       </thead>
       <tbody>
         {
-          Array.isArray(listaUfs) ? (
+          Array.isArray(listaUfs) && listaUfs.length > 0 ? (
             listaUfs.map((dadosUf) => (
               <tr key={dadosUf.id}>
                 <td>{dadosUf.id}</td>
