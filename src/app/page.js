@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Table from "./components/Table";
 import Topo from "./components/Topo";
 import estilos from "./page.module.css";
-import { retornaUfs } from "./service/ufs";
+import { retornaUfs } from "./service/ufs.js";
 
 
 export default function Home() {
