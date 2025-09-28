@@ -1,13 +1,14 @@
-import { retornaUfs } from '../../service/ufs';
+'use client';
+// import { retornaUfs } from '../../service/ufs';
 import estilos from './Table.module.css';
-export default async function Table() {
+export default async function Table({ listaUfs }) {
 
-  const listaUfs = await retornaUfs();
+  // const listaUfs = await retornaUfs();
 
   return (
     <table className={estilos.table}>
       <thead>
-        <tr key="">
+        <tr>
           <th>ID</th>
           <th>UF</th>
           <th>NOME</th>

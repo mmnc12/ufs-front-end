@@ -10,7 +10,7 @@ export default function Topo({ onBuscar }) {
       onBuscar(termo)
     }, 500);
     return () => clearTimeout(timer);
-  }. [termo, onBuscar]);
+  }, [termo, onBuscar]);
 
   return (
     <header className={estilos.header}>
