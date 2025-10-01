@@ -13,8 +13,12 @@ export default function Home() {
 
   const buscarUfs = async (termo) => {
     setLoading(true);
-    const resultados = await retornaUfs(termo);
-    setListaUfs(resultados);
+    try {
+      const resultados = await retornaUfs(termo);
+      setListaUfs(resultados);
+    } catch (error) {
+      setListaUfs([{ erro: "Erro ao buscar UFs" }]);
+    }
     setLoading(false);
   };
 

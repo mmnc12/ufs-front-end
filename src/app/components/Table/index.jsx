@@ -1,6 +1,6 @@
 'use client';
 import estilos from './Table.module.css';
-export default async function Table({ listaUfs }) {
+export default function Table({ listaUfs }) {
   return (
     <table className={estilos.table}>
       <thead>
