@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Table from "./components/Table";
 import Topo from "./components/Topo";
 import estilos from "./page.module.css";
@@ -9,32 +9,25 @@ import { retornaUfs } from "./service/ufs.js";
 
 export default function Home() {
   const [listaUfs, setListaUfs] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const buscarUfs = async (termo) => {
+  const buscarUfs = useCallback(async (termo) => {
     setLoading(true);
-    try {
-      const resultados = await retornaUfs(termo);
-      if(Array.isArray(resultados)) {
-        setListaUfs(resultados);
-      } else {
-        setListaUfs([])
-      }
-    } catch (error) {
-      setListaUfs([]);
-    }
+    const resultados = await retornaUfs(termo);
+    setListaUfs(resultados);
     setLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
+    // Busca inicial
     buscarUfs();
-  }, []);
+  }, [buscarUfs]);
 
   return (
     <main className={estilos.main}>
       <Topo onBuscar={buscarUfs} />
       {
-        loading ? <p>Carregando ...</p> : <Table listaUfs={listaUfs} />
+        <Table listaUfs={listaUfs} />
       }
     </main>
   );
