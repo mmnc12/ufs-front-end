@@ -15,9 +15,13 @@ export default function Home() {
     setLoading(true);
     try {
       const resultados = await retornaUfs(termo);
-      setListaUfs(resultados);
+      if(Array.isArray(resultados)) {
+        setListaUfs(resultados);
+      } else {
+        setListaUfs([])
+      }
     } catch (error) {
-      setListaUfs([{ erro: "Erro ao buscar UFs" }]);
+      setListaUfs([]);
     }
     setLoading(false);
   };

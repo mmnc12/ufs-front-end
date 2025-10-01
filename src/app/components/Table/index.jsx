@@ -20,16 +20,11 @@ export default function Table({ listaUfs }) {
                 <td>{dadosUf.nome}</td>
               </tr>
             ))
-          ) :
-            listaUfs.erro ? (
-              <tr>
-                <td colSpan="3">{listaUfs.erro}</td>
-              </tr>
-            ) : (
-              <tr>
-                <td colSpan="3">Erro ao consumir API</td>
-              </tr>
-            )}
+          ) : (
+            <tr>
+              <td colSpan="3">Nenhuma UF encontrada.</td>
+            </tr>
+          )}
       </tbody>
     </table>
   );
