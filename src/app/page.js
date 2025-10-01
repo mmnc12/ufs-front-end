@@ -5,6 +5,7 @@ import Table from "./components/Table";
 import Topo from "./components/Topo";
 import estilos from "./page.module.css";
 import { retornaUfs } from "./service/ufs.js";
+import { Spinner, Container } from "react-bootstrap";
 
 
 export default function Home() {
@@ -24,11 +25,17 @@ export default function Home() {
   }, [buscarUfs]);
 
   return (
-    <main className={estilos.main}>
+    <Container className="my-4">
       <Topo onBuscar={buscarUfs} />
-      {
+
+      {loading ? (
+        <div className="text-center mt-3">
+          <Spinner animation="border" role="status" />
+          <span className="ms-2">Carregando...</span>
+        </div>
+      ) : (
         <Table listaUfs={listaUfs} />
-      }
-    </main>
+      )}
+    </Container>
   );
 }
