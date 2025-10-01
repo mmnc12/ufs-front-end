@@ -18,7 +18,7 @@ export default function Topo({ onBuscar }) {
       App de Ufs
       <input 
         type="text"
-        placeholder="Busca UF ou Nome..."
+        placeholder="Busca UF por Nome do estado..."
         value={termo}
         onChange={(e) => setTermo(e.target.value)}
         className={estilos.input}
